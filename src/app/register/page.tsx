@@ -61,11 +61,10 @@ export default function RegisterPage() {
           />
 
           <Input
-            label={t.auth.email}
+            label={t.auth.email + ' (optional)'}
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
           />
 
           <Input

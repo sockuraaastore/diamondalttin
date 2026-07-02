@@ -73,23 +73,23 @@ export default function RingVideo() {
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80 pointer-events-none" />
 
-      <div className="absolute inset-0 flex items-center justify-between px-8 md:px-20">
+      <div className="absolute inset-0 flex items-center justify-between px-6 md:px-16 pointer-events-none">
         <motion.h1
-          initial={{ x: -100, opacity: 0 }}
+          initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="text-6xl md:text-9xl font-bold text-gold-light tracking-wider"
-          style={{ fontFamily: 'Playfair Display, serif' }}
+          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-gold-light tracking-widest drop-shadow-2xl"
+          style={{ fontFamily: 'Playfair Display, serif', textShadow: '0 0 40px rgba(212, 175, 55, 0.3)' }}
         >
           DIAMOND
         </motion.h1>
 
         <motion.h1
-          initial={{ x: 100, opacity: 0 }}
+          initial={{ x: 50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="text-6xl md:text-9xl font-bold text-gold-light tracking-wider"
-          style={{ fontFamily: 'Playfair Display, serif' }}
+          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-gold-light tracking-widest drop-shadow-2xl"
+          style={{ fontFamily: 'Playfair Display, serif', textShadow: '0 0 40px rgba(212, 175, 55, 0.3)' }}
         >
           ALTTIN
         </motion.h1>

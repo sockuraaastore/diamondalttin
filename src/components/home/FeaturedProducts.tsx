@@ -32,7 +32,27 @@ export default function FeaturedProducts() {
     );
   }
 
-  if (products.length === 0) return null;
+  if (products.length === 0) {
+    return (
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gold-light mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            {t.products.title}
+          </h2>
+          <div className="w-20 h-1 bg-gold-primary mx-auto mb-8" />
+          <div className="bg-bg-secondary rounded-xl border border-zinc-800 p-12">
+            <div className="w-16 h-16 bg-gold-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-8 h-8 text-gold-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+              </svg>
+            </div>
+            <p className="text-zinc-500 text-lg mb-2">No products yet</p>
+            <p className="text-zinc-600 text-sm">Add products from the admin panel to see them here</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-16">
