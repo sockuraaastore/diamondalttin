@@ -16,11 +16,11 @@ export default function RootLayout({
     <html lang="fa" dir="rtl">
       <head>
         <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#050505] text-white antialiased" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+      <body className="min-h-screen flex flex-col bg-[#050505] text-white antialiased" style={{ fontFamily: 'Vazirmatn, Inter, system-ui, sans-serif' }}>
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

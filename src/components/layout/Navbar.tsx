@@ -41,7 +41,7 @@ export default function Navbar() {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? 'glass-strong border-b border-gold-primary/10'
+            ? 'bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-gold-primary/10'
             : 'bg-transparent'
         }`}
       >
@@ -97,6 +97,14 @@ export default function Navbar() {
             </div>
 
             <div className="hidden lg:flex items-center gap-4">
+              <button
+                onClick={() => setShowAdminModal(true)}
+                className="flex items-center gap-2 px-4 py-2 rounded-full border border-gold-primary/30 text-gold-primary text-sm font-medium hover:bg-gold-primary/10 hover:border-gold-primary/50 transition-all duration-300"
+              >
+                <Shield size={14} />
+                <span>پنل مدیریت</span>
+              </button>
+
               {user ? (
                 <>
                   <Link
@@ -115,24 +123,7 @@ export default function Navbar() {
                     )}
                   </Link>
 
-                  <Link
-                    href="/diamondalttin/orders"
-                    className={`p-2.5 transition-colors duration-300 ${
-                      pathname === '/diamondalttin/orders' ? 'text-gold-primary' : 'text-zinc-400 hover:text-white'
-                    }`}
-                  >
-                    <Package size={20} />
-                  </Link>
-
                   <div className="w-px h-6 bg-zinc-800" />
-
-                  <button
-                    onClick={() => setShowAdminModal(true)}
-                    className="flex items-center gap-2 px-4 py-2 rounded-full border border-gold-primary/30 text-gold-primary text-sm font-medium hover:bg-gold-primary/10 hover:border-gold-primary/50 transition-all duration-300"
-                  >
-                    <Shield size={14} />
-                    <span>{t.nav.admin}</span>
-                  </button>
 
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-full bg-gradient-to-br from-gold-primary to-gold-dark flex items-center justify-center text-black text-xs font-bold">

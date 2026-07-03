@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { useLanguage } from '@/lib/language';
 import { Globe, Send, Phone, MapPin } from 'lucide-react';
 
@@ -8,7 +7,7 @@ export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="relative mt-auto">
+    <footer className="relative z-10 mt-auto w-full">
       <div className="section-divider" />
 
       <div className="bg-gradient-to-b from-[#0A0A0A] to-[#050505]">
