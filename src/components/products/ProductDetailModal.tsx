@@ -16,7 +16,7 @@ interface ProductDetailModalProps {
 }
 
 export default function ProductDetailModal({ isOpen, onClose, product }: ProductDetailModalProps) {
-  const { t, locale } = useLanguage();
+  const { t } = useLanguage();
   const { user } = useAuth();
   const { addItem } = useCart();
   const [quantity, setQuantity] = useState(1);
@@ -61,7 +61,7 @@ export default function ProductDetailModal({ isOpen, onClose, product }: Product
         <div className="md:w-1/2">
           <img
             src={product.image_url}
-            alt={locale === 'fa' ? product.name_fa : product.name}
+            alt={product.name_fa}
             className="w-full aspect-square object-cover rounded-lg"
           />
         </div>
@@ -69,12 +69,12 @@ export default function ProductDetailModal({ isOpen, onClose, product }: Product
         <div className="md:w-1/2 flex flex-col">
           {product.category && (
             <span className="text-xs text-gold-primary uppercase tracking-wider mb-2">
-              {locale === 'fa' ? product.category.name_fa : product.category.name}
+              {product.category.name_fa}
             </span>
           )}
 
           <h2 className="text-2xl font-bold text-white mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
-            {locale === 'fa' ? product.name_fa : product.name}
+            {product.name_fa}
           </h2>
 
           <p className="text-3xl font-bold text-gold-primary mb-4">
@@ -93,7 +93,7 @@ export default function ProductDetailModal({ isOpen, onClose, product }: Product
           <div className="mb-6">
             <h3 className="text-sm font-medium text-gold-light mb-2">{t.products.description}</h3>
             <p className="text-zinc-400 text-sm leading-relaxed">
-              {locale === 'fa' ? product.description_fa : product.description}
+              {product.description_fa}
             </p>
           </div>
 

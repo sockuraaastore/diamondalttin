@@ -7,7 +7,7 @@ import { useLanguage } from '@/lib/language';
 import Card, { CardImage, CardContent } from '@/components/ui/Card';
 
 export default function BlogsPage() {
-  const { t, locale } = useLanguage();
+  const { t } = useLanguage();
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -42,14 +42,14 @@ export default function BlogsPage() {
               <Card key={blog.id} hover>
                 <CardImage
                   src={blog.image_url}
-                  alt={locale === 'fa' ? blog.title_fa : blog.title}
+                  alt={blog.title_fa}
                 />
                 <CardContent>
                   <h3 className="text-lg font-semibold text-white mb-2">
-                    {locale === 'fa' ? blog.title_fa : blog.title}
+                    {blog.title_fa}
                   </h3>
                   <p className="text-sm text-zinc-400 line-clamp-3">
-                    {locale === 'fa' ? blog.content_fa : blog.content}
+                    {blog.content_fa}
                   </p>
                   <p className="text-xs text-zinc-500 mt-3">
                     {new Date(blog.created_at).toLocaleDateString()}

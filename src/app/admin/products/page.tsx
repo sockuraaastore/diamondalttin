@@ -12,7 +12,7 @@ import { Plus, Pencil, Trash2 } from 'lucide-react';
 
 export default function AdminProductsPage() {
   const { user, isAdmin } = useAuth();
-  const { t, locale } = useLanguage();
+  const { t } = useLanguage();
   const router = useRouter();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -91,13 +91,13 @@ export default function AdminProductsPage() {
                       />
                     </td>
                     <td className="px-4 py-3 text-white">
-                      {locale === 'fa' ? product.name_fa : product.name}
+                      {product.name_fa}
                     </td>
                     <td className="px-4 py-3 text-gold-primary">
                       ${product.price.toLocaleString()}
                     </td>
                     <td className="px-4 py-3 text-zinc-400">
-                      {product.category ? (locale === 'fa' ? product.category.name_fa : product.category.name) : '-'}
+                      {product.category ? product.category.name_fa : '-'}
                     </td>
                     <td className="px-4 py-3 text-right">
                       <button

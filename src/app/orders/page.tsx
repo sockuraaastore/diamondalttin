@@ -12,7 +12,7 @@ import { Package, Eye } from 'lucide-react';
 export default function OrdersPage() {
   const router = useRouter();
   const { user } = useAuth();
-  const { t, locale } = useLanguage();
+  const { t } = useLanguage();
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
   const [expandedOrder, setExpandedOrder] = useState<string | null>(null);

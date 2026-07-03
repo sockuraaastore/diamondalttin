@@ -10,7 +10,7 @@ interface CategoryFilterProps {
 }
 
 export default function CategoryFilter({ categories, selectedId, onSelect }: CategoryFilterProps) {
-  const { t, locale } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <div className="flex flex-wrap gap-3 justify-center mb-8">
@@ -34,7 +34,7 @@ export default function CategoryFilter({ categories, selectedId, onSelect }: Cat
               : 'bg-bg-secondary text-zinc-300 hover:bg-zinc-700'
           }`}
         >
-          {locale === 'fa' ? category.name_fa : category.name}
+          {category.name_fa}
         </button>
       ))}
     </div>

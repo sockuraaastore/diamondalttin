@@ -11,7 +11,7 @@ import Button from '@/components/ui/Button';
 export default function FeaturedProducts() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
-  const { t, locale } = useLanguage();
+  const { t } = useLanguage();
 
   useEffect(() => {
     async function loadProducts() {
@@ -69,11 +69,11 @@ export default function FeaturedProducts() {
             <Card key={product.id} hover>
               <CardImage
                 src={product.image_url}
-                alt={locale === 'fa' ? product.name_fa : product.name}
+                alt={product.name_fa}
               />
               <CardContent>
                 <h3 className="text-lg font-semibold text-white mb-1">
-                  {locale === 'fa' ? product.name_fa : product.name}
+                  {product.name_fa}
                 </h3>
                 <p className="text-gold-primary font-bold mb-3">
                   ${product.price.toLocaleString()}

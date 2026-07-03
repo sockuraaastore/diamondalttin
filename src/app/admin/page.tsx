@@ -21,21 +21,21 @@ export default function AdminDashboard() {
   if (!user || !isAdmin) return null;
 
   const sections = [
-    { href: '/admin/orders', label: t.admin.orders, icon: ShoppingCart },
-    { href: '/admin/products', label: t.admin.products, icon: Package },
-    { href: '/admin/categories', label: t.admin.categories, icon: Tag },
-    { href: '/admin/banners', label: t.admin.banners, icon: Image },
-    { href: '/admin/tickets', label: t.admin.tickets, icon: MessageSquare },
+    { href: '/admin/orders', label: t.admin.orders, icon: ShoppingCart, delay: '0ms' },
+    { href: '/admin/products', label: t.admin.products, icon: Package, delay: '100ms' },
+    { href: '/admin/categories', label: t.admin.categories, icon: Tag, delay: '200ms' },
+    { href: '/admin/banners', label: t.admin.banners, icon: Image, delay: '300ms' },
+    { href: '/admin/tickets', label: t.admin.tickets, icon: MessageSquare, delay: '400ms' },
   ];
 
   return (
     <div className="min-h-screen py-12">
       <div className="max-w-4xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gold-light mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+        <div className="text-center mb-12 animate-fade-in">
+          <h1 className="text-4xl md:text-5xl font-bold gold-gradient-text mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
             {t.admin.dashboard}
           </h1>
-          <div className="w-20 h-1 bg-gold-primary mx-auto" />
+          <div className="w-20 h-1 bg-gradient-to-r from-gold-primary to-gold-dark mx-auto rounded-full" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -43,10 +43,15 @@ export default function AdminDashboard() {
             <Link
               key={section.href}
               href={section.href}
-              className="bg-bg-secondary rounded-xl border border-zinc-800 p-6 hover:border-gold-primary transition-all duration-300 hover:shadow-lg hover:shadow-gold-primary/10"
+              className="glass card-hover rounded-2xl p-6 group"
+              style={{ animationDelay: section.delay }}
             >
-              <section.icon className="w-12 h-12 text-gold-primary mb-4" />
-              <h3 className="text-xl font-semibold text-white">{section.label}</h3>
+              <div className="w-14 h-14 rounded-xl bg-gold-primary/10 flex items-center justify-center mb-4 group-hover:bg-gold-primary/20 transition-colors duration-300">
+                <section.icon className="w-7 h-7 text-gold-primary" />
+              </div>
+              <h3 className="text-xl font-semibold text-white group-hover:text-gold-primary transition-colors duration-300">
+                {section.label}
+              </h3>
             </Link>
           ))}
         </div>

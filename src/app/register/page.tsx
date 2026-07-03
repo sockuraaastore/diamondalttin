@@ -13,9 +13,7 @@ export default function RegisterPage() {
   const { register } = useAuth();
   const { t } = useLanguage();
   const [fullName, setFullName] = useState('');
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [adminCode, setAdminCode] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -24,7 +22,7 @@ export default function RegisterPage() {
     setError('');
     setLoading(true);
 
-    const result = await register(email, password, fullName, adminCode || undefined);
+    const result = await register(password, fullName);
 
     if (result.error) {
       setError(result.error);
@@ -37,7 +35,7 @@ export default function RegisterPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
-      <div className="w-full max-w-md">
+      <div className="w-full max-w-md animate-fade-in">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gold-primary" style={{ fontFamily: 'Playfair Display, serif' }}>
             Diamond Alttin
@@ -45,9 +43,9 @@ export default function RegisterPage() {
           <p className="text-zinc-400 mt-2">{t.auth.registerTitle}</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-bg-secondary p-8 rounded-xl border border-zinc-800 space-y-4">
+        <form onSubmit={handleSubmit} className="bg-bg-secondary/80 backdrop-blur-xl p-8 rounded-2xl border border-zinc-800/50 space-y-5 shadow-2xl shadow-black/50">
           {error && (
-            <div className="p-3 bg-red-500/10 border border-red-500/50 rounded-lg text-red-400 text-sm">
+            <div className="p-3 bg-red-500/10 border border-red-500/50 rounded-xl text-red-400 text-sm animate-fade-in">
               {error}
             </div>
           )}
@@ -61,26 +59,12 @@ export default function RegisterPage() {
           />
 
           <Input
-            label={t.auth.email + ' (optional)'}
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-
-          <Input
             label={t.auth.password}
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
             minLength={6}
-          />
-
-          <Input
-            label={t.auth.adminCode}
-            type="password"
-            value={adminCode}
-            onChange={(e) => setAdminCode(e.target.value)}
           />
 
           <Button type="submit" loading={loading} className="w-full">

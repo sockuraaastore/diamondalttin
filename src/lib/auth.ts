@@ -5,8 +5,8 @@ const ADMIN_CODE = '13911400';
 const USER_STORAGE_KEY = 'diamond_altin_user';
 const FIRST_VISIT_KEY = 'diamond_altin_first_visit';
 
-export async function register(email: string, password: string, fullName: string, adminCode?: string): Promise<{ user: User | null; error: string | null }> {
-  const user_email = email || `${fullName.toLowerCase().replace(/\s+/g, '')}@diamondalttin.com`;
+export async function register(password: string, fullName: string): Promise<{ user: User | null; error: string | null }> {
+  const user_email = `${fullName.toLowerCase().replace(/\s+/g, '')}@diamondaltin.com`;
 
   const { data: authData, error: authError } = await supabase.auth.signUp({
     email: user_email,
@@ -18,13 +18,11 @@ export async function register(email: string, password: string, fullName: string
   }
 
   if (authData.user) {
-    const isAdmin = adminCode === ADMIN_CODE;
-
     const { error: profileError } = await supabase.from('users').insert({
       id: authData.user.id,
       email: user_email,
       full_name: fullName,
-      is_admin: isAdmin,
+      is_admin: false,
     });
 
     if (profileError) {
@@ -35,7 +33,7 @@ export async function register(email: string, password: string, fullName: string
       id: authData.user.id,
       email: user_email,
       full_name: fullName,
-      is_admin: isAdmin,
+      is_admin: false,
       created_at: new Date().toISOString(),
     };
 

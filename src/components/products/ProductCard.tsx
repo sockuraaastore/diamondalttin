@@ -13,7 +13,7 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product, onView, onAddToCart }: ProductCardProps) {
-  const { locale, t } = useLanguage();
+  const { t } = useLanguage();
   const isOutOfStock = product.stock <= 0;
 
   return (
@@ -21,7 +21,7 @@ export default function ProductCard({ product, onView, onAddToCart }: ProductCar
       <div className="relative">
         <CardImage
           src={product.image_url}
-          alt={locale === 'fa' ? product.name_fa : product.name}
+          alt={product.name_fa}
         />
         {isOutOfStock && (
           <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
@@ -37,14 +37,14 @@ export default function ProductCard({ product, onView, onAddToCart }: ProductCar
       <CardContent>
         {product.category && (
           <span className="text-xs text-gold-primary uppercase tracking-wider">
-            {locale === 'fa' ? product.category.name_fa : product.category.name}
+            {product.category.name_fa}
           </span>
         )}
         <h3 className="text-lg font-semibold text-white mt-1 mb-1">
-          {locale === 'fa' ? product.name_fa : product.name}
+          {product.name_fa}
         </h3>
         <p className="text-sm text-zinc-400 mb-3 line-clamp-2">
-          {locale === 'fa' ? product.description_fa : product.description}
+          {product.description_fa}
         </p>
         <div className="flex items-center justify-between mb-3">
           <span className="text-xl font-bold text-gold-primary">

@@ -95,4 +95,4 @@ export interface OrderItem {
   product?: Product;
 }
 
-export type Locale = 'en' | 'fa';
+

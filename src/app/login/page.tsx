@@ -35,7 +35,7 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
-      <div className="w-full max-w-md">
+      <div className="w-full max-w-md animate-fade-in">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gold-primary" style={{ fontFamily: 'Playfair Display, serif' }}>
             Diamond Alttin
@@ -43,9 +43,9 @@ export default function LoginPage() {
           <p className="text-zinc-400 mt-2">{t.auth.loginTitle}</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-bg-secondary p-8 rounded-xl border border-zinc-800 space-y-4">
+        <form onSubmit={handleSubmit} className="bg-bg-secondary/80 backdrop-blur-xl p-8 rounded-2xl border border-zinc-800/50 space-y-5 shadow-2xl shadow-black/50">
           {error && (
-            <div className="p-3 bg-red-500/10 border border-red-500/50 rounded-lg text-red-400 text-sm">
+            <div className="p-3 bg-red-500/10 border border-red-500/50 rounded-xl text-red-400 text-sm animate-fade-in">
               {error}
             </div>
           )}
